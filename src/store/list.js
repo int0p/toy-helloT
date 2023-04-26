@@ -1,4 +1,5 @@
 import {writable} from 'svelte/store';
+import uuid from 'uuid/v4'
 
 // repo에서 데이터 받아옴.
 const repoLists = JSON.parse(window.localStorage.getItem('lists')) || [];
@@ -18,7 +19,7 @@ export const lists ={
         _lists.update(
             $lists => {
                 $lists.push({
-                    id:'',
+                    id:uuid(),
                     title,
                     card:[]
                 })
